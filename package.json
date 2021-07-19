@@ -1,0 +1,36 @@
+{
+  "name": "browser-storage",
+  "version": "1.0.0",
+  "description": "browser storage javascript library",
+  "main": "dist/browser-storage.min.js",
+  "types": "dist/main.d.ts",
+  "author": "wone",
+  "keywords": [
+    "browser storage cookie"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/jest": "^26.0.24",
+    "cypress": "^7.7.0",
+    "jest": "^27.0.4",
+    "rollup": "^2.52.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^27.0.3",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "rollup --config && yarn test",
+    "pu": "yarn test && yarn build && yarn publish",
+    "cypress": "cypress open",
+    "sync:github": "git add -A && git commit && git push -u origin master"
+  },
+  "license": "MIT"
+}

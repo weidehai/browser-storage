@@ -27,7 +27,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "rollup --config && yarn test",
+    "build": "yarn test && rollup --config --watch",
     "pu": "yarn test && yarn build && yarn publish",
     "cypress": "cypress open",
     "sync:github": "git add -A && git commit && git push -u origin master"

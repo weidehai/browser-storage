@@ -1,6 +1,6 @@
 export function setCookie(
   key: string,
-  value: string,
+  value: string|undefined|null,
   options: cookieProps
 ): boolean {
   document.cookie = generator(key, value, options);
@@ -9,7 +9,7 @@ export function setCookie(
 
 export function generator(
   key: string,
-  value: string,
+  value: string|undefined|null,
   options: cookieProps = {}
 ) {
   if (!key || /^(?:expires|max\-age|path|domain|secure)$/i.test(key)) {
@@ -23,7 +23,7 @@ export function generator(
   let domain = options.domain ?? "";
   let path = options.path ?? "";
   let secure = options.secure ?? "";
-  return `${encodeURIComponent(key)}=${encodeURIComponent(value)}${expires}${
+  return `${encodeURIComponent(key)}=${value?encodeURIComponent(value):""}${expires}${
     domain ? ";domain=" + domain : ""
   }${path ? ";path=" + path : ""}${secure ? "secure" : ""}`;
 }
